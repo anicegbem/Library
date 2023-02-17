@@ -1,4 +1,4 @@
-let myLibrary = ['famished road'];
+let myLibrary = ['Famished Road', 'Better Never to Have Been'];
 let table = document.querySelector('table');
 
 function Book(title) {
@@ -32,7 +32,3 @@ function displayBooks() {
 
 addBookToLibrary();
 
-// const report = new Book('The Famished Road', 'Ben Okri', 245, 'read');
-// console.log(report.info());
-// const updike = new Book('Rabbit Run', 'John Updike', 500, 'not read yet');
-// console.log(updike.info());
