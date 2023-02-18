@@ -1,5 +1,8 @@
-let myLibrary = ['Famished Road', 'Better Never to Have Been'];
+let myLibrary = ['The Famished Road'];
 let table = document.querySelector('table');
+let newbook = document.getElementById('new');
+let form = document.querySelector('form');
+let submit = document.getElementById('submit');
 
 function Book(title) {
     this.title = title
@@ -12,10 +15,10 @@ function Book(title) {
 }
 
 function addBookToLibrary() {
-    let input = prompt("Enter the books of choice");
-    let book = new Book(input);
-    myLibrary.push(book.title);
-    displayBooks();
+    // let input = prompt("Enter the books of choice");
+    // let book = new Book(input);
+    // myLibrary.push(book.title);
+    // displayBooks();
     
 }
 
@@ -30,5 +33,19 @@ function displayBooks() {
     }
 }
 
+function addNewBooks() {
+    newbook.addEventListener('click', function() {
+        form.style.display = "block";
+
+    })
+}
+
+submit.addEventListener('click', stopSubmit, false);
+
+function stopSubmit(event) {
+    event.preventDefault();
+}
+
 addBookToLibrary();
+addNewBooks();
 
