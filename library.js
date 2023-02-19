@@ -32,24 +32,39 @@ function addBookToLibrary() {
 }
 
 function displayBooks() {
-    for(let book of myLibrary) {
-        let titledata = document.createElement('td');
-        titledata.textContent = book.title;
-        let authordata = document.createElement('td');
-        authordata.textContent = book.author;
-        let pagedata = document.createElement('td');
-        pagedata.textContent = book.pages;
-        let row = document.createElement('tr');
-        row.append(titledata, authordata, pagedata);
-        let remove = document.createElement('button');
-        remove.textContent = "delete"
-        let td = document.createElement('td');
-        td.append(remove);
-        row.append(td);
-        tbody.append(row);
-        table.append(tbody);
+    let titledata = document.createElement('td');
+    titledata.textContent = myLibrary[myLibrary.length - 1].title;
+    let authordata = document.createElement('td');
+    authordata.textContent = myLibrary[myLibrary.length - 1].author;
+    let pagedata = document.createElement('td');
+    pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
+    let row = document.createElement('tr');
+    row.append(titledata, authordata, pagedata);
+    let remove = document.createElement('button');
+    remove.textContent = "delete"
+    let td = document.createElement('td');
+    td.append(remove);
+    row.append(td);
+    tbody.append(row);
+    table.append(tbody);
+    // for(let book of myLibrary) {
+    //     let titledata = document.createElement('td');
+    //     titledata.textContent = book.title;
+    //     let authordata = document.createElement('td');
+    //     authordata.textContent = book.author;
+    //     let pagedata = document.createElement('td');
+    //     pagedata.textContent = book.pages;
+    //     let row = document.createElement('tr');
+    //     row.append(titledata, authordata, pagedata);
+    //     let remove = document.createElement('button');
+    //     remove.textContent = "delete"
+    //     let td = document.createElement('td');
+    //     td.append(remove);
+    //     row.append(td);
+    //     tbody.append(row);
+    //     table.append(tbody);
     
-    }
+    // }
 }
 
 function addNewBooks() {
@@ -72,10 +87,17 @@ function submitBook() {
             table.style.display = "block";
             form.style.display = "none";
             form.reset();
-            myLibrary.splice(myLibrary.length - 1, 1);
+            // myLibrary.splice(myLibrary.length - 1, 1);
         }
         
     })
+}
+
+function deleteBook(remove) {
+    remove.addEventListener('click', function() {
+
+    })
+
 }
 
 
