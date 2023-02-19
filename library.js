@@ -42,13 +42,7 @@ function displayBooks() {
         row.append(titledata, authordata, pagedata);
         tbody.append(row);
         table.append(tbody);
-        
-        // let data = document.createElement("td");
-        // data.textContent = book.title;
-        // let row = document.createElement('tr');
-        // row.append(data);
-        // table.append(row);
-
+    
     }
 }
 
@@ -69,7 +63,9 @@ function submitBook() {
     submit.addEventListener('click', function() {
         if(title.value !== '' && author.value !== '' && pages.value !== '') {
             addBookToLibrary();
-            
+            table.style.display = "block";
+            form.style.display = "none";
+            form.reset();
         }
         
     })
