@@ -9,6 +9,7 @@ let pages = document.getElementById('pages');
 let heads = document.querySelectorAll('th');
 let tbody = document.querySelector('tbody');
 
+
 function Book(title, author, pages) {
     this.title = title
     this.author = author
@@ -40,6 +41,11 @@ function displayBooks() {
         pagedata.textContent = book.pages;
         let row = document.createElement('tr');
         row.append(titledata, authordata, pagedata);
+        let remove = document.createElement('button');
+        remove.textContent = "delete"
+        let td = document.createElement('td');
+        td.append(remove);
+        row.append(td);
         tbody.append(row);
         table.append(tbody);
     
