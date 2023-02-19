@@ -66,6 +66,7 @@ function submitBook() {
             table.style.display = "block";
             form.style.display = "none";
             form.reset();
+            myLibrary.splice(myLibrary.length - 1, 1);
         }
         
     })
