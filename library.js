@@ -10,6 +10,8 @@ let heads = document.querySelectorAll('th');
 let tbody = document.querySelector('tbody');
 
 
+
+
 function Book(title, author, pages) {
     this.title = title
     this.author = author
@@ -39,14 +41,24 @@ function displayBooks() {
     let pagedata = document.createElement('td');
     pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
     let row = document.createElement('tr');
+    for(let i = 0; i < myLibrary.length; i++) {
+        row.dataset.id = `${i}`;
+    }
+    // setIndex();
+    // Indexes appear to be set only on button click
+
+
+    // row.dataset.id = `${}`
     row.append(titledata, authordata, pagedata);
     let remove = document.createElement('button');
     remove.textContent = "delete"
     let td = document.createElement('td');
     td.append(remove);
     row.append(td);
+    deleteBook(remove, row);
     tbody.append(row);
     table.append(tbody);
+    
     // for(let book of myLibrary) {
     //     let titledata = document.createElement('td');
     //     titledata.textContent = book.title;
@@ -93,14 +105,36 @@ function submitBook() {
     })
 }
 
-function deleteBook(remove) {
+function deleteBook(remove, row) {
     remove.addEventListener('click', function() {
+        row.remove();
+        // Code for removing elements from array can come in here
 
     })
 
 }
 
+function setIndex() {
+    let rows = document.querySelectorAll('tr');
+    let arr = Array.from(rows);
+    for(let i = 0; i < arr.length; i++){
+        arr[i].dataset.id = `${i}`
+    }
+    // console.log(arr);
+}
+
+// function deleteElement() {
+//     for(let i = 0; i < arr.length; i++) {
+//         arr[i].dataset.id = `${i}`; 
+
+//     }
+// }
+
+
+
 
 addNewBooks();
 submitBook();
+// setIndex();
+// deleteElement();
 
