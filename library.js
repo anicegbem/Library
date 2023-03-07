@@ -8,6 +8,7 @@ let title = document.getElementById('title');
 let pages = document.getElementById('pages');
 let heads = document.querySelectorAll('th');
 let tbody = document.querySelector('tbody');
+let span = document.querySelector('span');
 
 
 
@@ -25,7 +26,7 @@ function Book(title, author, pages) {
 function addBookToLibrary() {
     // create the object instance
     let book = new Book(title.value, author.value, pages.value);
-    console.log(book);
+    // console.log(book);
     // add the object to the array
     myLibrary.push(book);
     // display the items(title, pages, read, author) on screen
@@ -41,9 +42,11 @@ function displayBooks() {
     let pagedata = document.createElement('td');
     pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
     let row = document.createElement('tr');
-    for(let i = 0; i < myLibrary.length; i++) {
-        row.dataset.id = `${i}`;
-    }
+
+    // for(let i = 0; i < myLibrary.length; i++) {
+    //     row.dataset.id = `${i}`;
+    // }
+    
     // setIndex();
     // Indexes appear to be set only on button click
 
@@ -108,13 +111,18 @@ function submitBook() {
 function deleteBook(remove, row) {
     remove.addEventListener('click', function() {
         // row.remove();
-        row.style.display = "none";
+        
         // Code for removing elements from array can come in here
-        for(let obj in myLibrary) {
-            if(row.dataset.id === obj) {
-                myLibrary.splice(obj, 1);
-            }
-        }
+        let index = [...tbody.children].indexOf(row);
+        myLibrary.splice(index, 1);
+        console.log(index);
+        row.remove();
+        // for(let obj in myLibrary) {
+        //     if(row.dataset.id === obj) {
+        //         row.style.display = "none";
+        //         myLibrary.splice(obj, 1);
+        //     }
+        // }
 
     })
 
