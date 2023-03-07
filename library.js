@@ -107,8 +107,14 @@ function submitBook() {
 
 function deleteBook(remove, row) {
     remove.addEventListener('click', function() {
-        row.remove();
+        // row.remove();
+        row.style.display = "none";
         // Code for removing elements from array can come in here
+        for(let obj in myLibrary) {
+            if(row.dataset.id === obj) {
+                myLibrary.splice(obj, 1);
+            }
+        }
 
     })
 
