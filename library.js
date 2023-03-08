@@ -9,14 +9,26 @@ let pages = document.getElementById('pages');
 let heads = document.querySelectorAll('th');
 let tbody = document.querySelector('tbody');
 let span = document.querySelector('span');
+let check = document.getElementById("read");
+
+
+function setStatus() {
+    if(check.checked == true) {
+        check.value = "Read";
+    } else {
+        check.value = "Not Read";
+    }
+    
+
+}
 
 
 
-
-function Book(title, author, pages) {
+function Book(title, author, pages, status) {
     this.title = title
     this.author = author
     this.pages = pages
+    this.status = status
     // this.read = read
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages ${this.read}`;
@@ -25,12 +37,15 @@ function Book(title, author, pages) {
 
 function addBookToLibrary() {
     // create the object instance
-    let book = new Book(title.value, author.value, pages.value);
+    setStatus();
+    let book = new Book(title.value, author.value, pages.value, check.value);
     // console.log(book);
     // add the object to the array
     myLibrary.push(book);
     // display the items(title, pages, read, author) on screen
     displayBooks();
+    
+    
     
 }
 
@@ -42,6 +57,8 @@ function displayBooks() {
     let pagedata = document.createElement('td');
     pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
     let row = document.createElement('tr');
+    let read = document.createElement('button');
+    read.innerText = `${check.value}`;
 
     // for(let i = 0; i < myLibrary.length; i++) {
     //     row.dataset.id = `${i}`;
@@ -58,6 +75,7 @@ function displayBooks() {
     let td = document.createElement('td');
     td.append(remove);
     row.append(td);
+    row.append(read);
     deleteBook(remove, row);
     tbody.append(row);
     table.append(tbody);
@@ -115,7 +133,6 @@ function deleteBook(remove, row) {
         // Code for removing elements from array can come in here
         let index = [...tbody.children].indexOf(row);
         myLibrary.splice(index, 1);
-        console.log(index);
         row.remove();
         // for(let obj in myLibrary) {
         //     if(row.dataset.id === obj) {
@@ -127,6 +144,7 @@ function deleteBook(remove, row) {
     })
 
 }
+
 
 function setIndex() {
     let rows = document.querySelectorAll('tr');
@@ -149,6 +167,7 @@ function setIndex() {
 
 addNewBooks();
 submitBook();
+setStatus();
 // setIndex();
 // deleteElement();
 
