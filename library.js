@@ -22,6 +22,21 @@ function setStatus() {
 
 }
 
+function updateStatus(read) {
+    read.addEventListener('click', function() {
+        if(read.innerText === "Not Read") {
+            read.innerText = "Read"
+            myLibrary[myLibrary.length - 1].status = "Read";
+    
+        } else if (read.innerText === "Read") {
+            read.innerText = "Not Read"
+            myLibrary[myLibrary.length - 1].status = "Not Read"
+
+        }
+    })
+    
+}
+
 
 
 function Book(title, author, pages, status) {
@@ -29,10 +44,7 @@ function Book(title, author, pages, status) {
     this.author = author
     this.pages = pages
     this.status = status
-    // this.read = read
-    this.info = function() {
-        return `${this.title} by ${this.author}, ${this.pages} pages ${this.read}`;
-    }
+    
 }
 
 function addBookToLibrary() {
@@ -59,6 +71,7 @@ function displayBooks() {
     let row = document.createElement('tr');
     let read = document.createElement('button');
     read.innerText = `${check.value}`;
+    updateStatus(read);
 
     // for(let i = 0; i < myLibrary.length; i++) {
     //     row.dataset.id = `${i}`;
