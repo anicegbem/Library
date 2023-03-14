@@ -9,14 +9,20 @@
     <title>Ahan | Library</title>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <h1>Library</h1>
+        </div>
+    </header>
     <div class="container">
+        <div><button type="button" id="new">NEW BOOK</button></div>
         <table>
             <thead>
                 <tr>
-                    <th id="bookhead">Books</th>
-                    <th id="authorhead">Author</th>
-                    <th id="pagehead">Pages</th>
-                    <!-- <th>Status</th> -->
+                    <th scope="col">Books</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,8 +48,9 @@
                 <input type="checkbox" id="read">
             </div>
             <button type="submit" id="submit">Submit</button>
+            <button type="button" id="close">Close</button>
         </form>
-        <button type="button" id="new">NEW BOOK</button>
+        <!-- <button type="button" id="new">NEW BOOK</button> -->
     </div>
 
     <!-- <span>

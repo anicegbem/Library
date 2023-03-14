@@ -6,11 +6,73 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container {
+    display: grid;
+    margin: 0 auto;
+    width: 55%;
+    
+}
+.container > div {
+    justify-self: center;
+    
+    
+    
+}
 form {
     display: none;
     
 }
 
 table {
-    display: none;
+    table-layout: fixed;
+    width: 50%;
+    /* justify-self: center; */
+    border-collapse: collapse;
+    margin-top: 1.5em;
+    /* width: 75%; */
+    /* display: none; */
+}
+
+thead th:nth-child(1) {
+    /* width: max-content; */
+}
+
+thead th:nth-child(2) {
+    /* width: 20%; */
+    /* width: max-content; */
+}
+
+thead th:nth-child(3) {
+    /* width: 15%; */
+    /* width: max-content; */
+}
+
+thead th:nth-child(4) {
+    /* width: 20%; */
+    /* width: max-content; */
+}
+thead th:nth-child(5) {
+    /* width: 15%; */
+    /* width: max-content; */
+}
+
+th {
+    padding: 20px;
+    text-align: center;
+    /* width: min-content; */
+}
+
+tr {
+    border-bottom: 2px solid #cbd5e1;
+    padding: 15px;
+}
+
+td {
+    border-left: #cbd5e1;
 }

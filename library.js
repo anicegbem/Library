@@ -10,6 +10,7 @@ let heads = document.querySelectorAll('th');
 let tbody = document.querySelector('tbody');
 let span = document.querySelector('span');
 let check = document.getElementById("read");
+let cancel = document.getElementById("close");
 
 
 function setStatus() {
@@ -63,13 +64,28 @@ function addBookToLibrary() {
 
 function displayBooks() {
     let titledata = document.createElement('td');
+    titledata.style.padding = "20px";
     titledata.textContent = myLibrary[myLibrary.length - 1].title;
+    titledata.style.width = "1em";
+    // titledata.style.wordBreak = "break-all";
+    // titledata.style.border = "1px solid black";
+
     let authordata = document.createElement('td');
+    authordata.style.padding = "20px";
     authordata.textContent = myLibrary[myLibrary.length - 1].author;
+    // authordata.style.width = "5em";
+    // authordata.style.border = "1px solid black"
+
     let pagedata = document.createElement('td');
+    pagedata.style.padding = "20px";
     pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
+    // pagedata.style.width = "5em";
+    // pagedata.style.border = "1px solid black"
+
     let row = document.createElement('tr');
+    row.style.width = "min-content";
     let read = document.createElement('button');
+    read.style.padding = "5px";
     read.innerText = `${check.value}`;
     updateStatus(read);
 
@@ -84,11 +100,19 @@ function displayBooks() {
     // row.dataset.id = `${}`
     row.append(titledata, authordata, pagedata);
     let remove = document.createElement('button');
-    remove.textContent = "delete"
+    remove.textContent = "delete";
+    let rd = document.createElement('td');
+    rd.style.padding = "20px";
+    // rd.style.width = "5em";
+    // rd.style.border = "1px solid black"
+
     let td = document.createElement('td');
+    // td.style.width = "5em";
+    td.style.padding = "20px";
+    rd.append(read);
     td.append(remove);
+    row.append(rd);
     row.append(td);
-    row.append(read);
     deleteBook(remove, row);
     tbody.append(row);
     table.append(tbody);
@@ -158,6 +182,13 @@ function deleteBook(remove, row) {
 
 }
 
+function closeForm() {
+    cancel.addEventListener('click', function() {
+        form.style.display = "none";
+        form.reset();
+    })
+}
+
 
 function setIndex() {
     let rows = document.querySelectorAll('tr');
@@ -181,6 +212,7 @@ function setIndex() {
 addNewBooks();
 submitBook();
 setStatus();
+closeForm();
 // setIndex();
 // deleteElement();
 
