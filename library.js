@@ -26,11 +26,15 @@ function setStatus() {
 function updateStatus(read) {
     read.addEventListener('click', function() {
         if(read.innerText === "Not Read") {
-            read.innerText = "Read"
+            read.innerText = "Read";
+            read.style.background = "#0ea5e9";
+            read.style.color = "white";
             myLibrary[myLibrary.length - 1].status = "Read";
     
         } else if (read.innerText === "Read") {
-            read.innerText = "Not Read"
+            read.innerText = "Not Read";
+            read.style.background = "#e11d48";
+            read.style.color = "white";
             myLibrary[myLibrary.length - 1].status = "Not Read"
 
         }
@@ -66,28 +70,39 @@ function displayBooks() {
     let titledata = document.createElement('td');
     titledata.style.padding = "20px";
     titledata.textContent = myLibrary[myLibrary.length - 1].title;
-    titledata.style.width = "1em";
-    // titledata.style.wordBreak = "break-all";
+    titledata.style.width = "25%";
+    titledata.style.wordBreak = "break-all";
     // titledata.style.border = "1px solid black";
 
     let authordata = document.createElement('td');
     authordata.style.padding = "20px";
     authordata.textContent = myLibrary[myLibrary.length - 1].author;
-    // authordata.style.width = "5em";
+    authordata.style.width = "25%";
     // authordata.style.border = "1px solid black"
 
     let pagedata = document.createElement('td');
     pagedata.style.padding = "20px";
     pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
-    // pagedata.style.width = "5em";
+    pagedata.style.width = "25%";
     // pagedata.style.border = "1px solid black"
 
     let row = document.createElement('tr');
     row.style.width = "min-content";
     let read = document.createElement('button');
+    read.style.width = "70px";
+    read.style.fontSize = "13px";
     read.style.padding = "5px";
+    read.style.border = "0.5px solid #e5e7eb";
+    read.style.borderRadius = "3px";
     read.innerText = `${check.value}`;
     updateStatus(read);
+    if(read.textContent === "Read") {
+        read.style.background = "#0ea5e9";
+        read.style.color = "white"
+    } else {
+        read.style.background = "#e11d48";
+        read.style.color = "white";
+    }
 
     // for(let i = 0; i < myLibrary.length; i++) {
     //     row.dataset.id = `${i}`;
@@ -100,14 +115,20 @@ function displayBooks() {
     // row.dataset.id = `${}`
     row.append(titledata, authordata, pagedata);
     let remove = document.createElement('button');
-    remove.textContent = "delete";
+    remove.style.width = "70px";
+    remove.style.fontSize = "13px";
+    remove.style.padding = "5px";
+    remove.style.border = "0.5px solid #e5e7eb";
+    remove.style.borderRadius = "3px";
+    remove.textContent = "Delete";
+
     let rd = document.createElement('td');
-    rd.style.padding = "20px";
-    // rd.style.width = "5em";
+    // rd.style.padding = "20px";
+    rd.style.width = "25%";
     // rd.style.border = "1px solid black"
 
     let td = document.createElement('td');
-    // td.style.width = "5em";
+    td.style.width = "25%";
     td.style.padding = "20px";
     rd.append(read);
     td.append(remove);
@@ -140,6 +161,8 @@ function displayBooks() {
 function addNewBooks() {
     newbook.addEventListener('click', function() {
         form.style.display = "block";
+        // form.style.position = "absolute";
+        // form.style.top = "200px";
 
     })
 }

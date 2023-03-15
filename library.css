@@ -10,12 +10,14 @@ body {
     margin: 0;
     padding: 0;
     
+    
 }
 
 .container {
     display: grid;
     margin: 0 auto;
     width: 55%;
+    
     
 }
 .container > div {
@@ -24,6 +26,27 @@ body {
     
     
 }
+.container #new {
+    display: flex;
+    /* justify-content: center; */
+    padding: 5px 10px;
+    /* border: 2px solid #e5e7eb; */
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.container > div {
+    /* display: flex; */
+    
+}
+
+#text {
+    align-self: center;
+}
+
+.iconify {
+    font-size: 2em;
+}
 form {
     display: none;
     
@@ -31,7 +54,7 @@ form {
 
 table {
     table-layout: fixed;
-    width: 50%;
+    width: 100%;
     /* justify-self: center; */
     border-collapse: collapse;
     margin-top: 1.5em;
@@ -65,14 +88,28 @@ thead th:nth-child(5) {
 th {
     padding: 20px;
     text-align: center;
-    /* width: min-content; */
+    width: 25%;
 }
 
 tr {
     border-bottom: 2px solid #cbd5e1;
     padding: 15px;
+    text-align: center;
 }
 
 td {
     border-left: #cbd5e1;
+}
+
+input:focus:invalid {
+    border-color: #e11d48;
+}
+
+input:focus:valid {
+    border-color: #0ea5e9;
+}
+
+header {
+    border-bottom: 1px solid #cbd5e1;
+    margin-bottom: 20px;
 }
