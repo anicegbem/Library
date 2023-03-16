@@ -17,7 +17,7 @@
         </div>
     </header>
     <div class="container">
-        <div><button type="button" id="new"><span class="iconify" data-icon="mdi:plus"></span>
+        <div><button type="button" data-toggle="modal" data-target="#form" id="new"><span class="iconify" data-icon="mdi:plus"></span>
             <span id="text">NEW BOOK</span></button></div>
         <table>
             <thead>
@@ -33,28 +33,49 @@
             </tbody>
         </table>
 
-        <form action="">
-            <div>
-                <input type="text" id="title" placeholder="Title" required>
+        <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="formModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="formModalLongTitle">Add New Book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="mb-2">
+                                <input type="text" id="title" placeholder="Title" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" id="author" placeholder="Author" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="number" id="pages" min="1" placeholder="Pages" class="form-control" required>
+                            </div>
+                            <div>
+                                <label for="read">Have you read the book?</label>
+                                <input type="checkbox" id="read">
+                            </div>
+                            
+                            
+                        </form>
+                        
+                        <!-- <button type="button" id="close">Close</button> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
             </div>
-
-            <div>
-                <input type="text" id="author" placeholder="Author" required>
-            </div>
-
-            <div>
-                <input type="number" id="pages" min="1" placeholder="Pages" required>
-            </div>
-
-            <div>
-                <label for="read">Have you read the book?</label>
-                <input type="checkbox" id="read">
-            </div>
-            <button type="submit" id="submit">Submit</button>
-            <button type="button" id="close">Close</button>
-        </form>
+        </div>
         <!-- <button type="button" id="new">NEW BOOK</button> -->
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- <span>
         <div></div>

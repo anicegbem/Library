@@ -11,6 +11,7 @@ let tbody = document.querySelector('tbody');
 let span = document.querySelector('span');
 let check = document.getElementById("read");
 let cancel = document.getElementById("close");
+let modal = document.getElementById("form");
 
 
 function setStatus() {
@@ -71,7 +72,7 @@ function displayBooks() {
     titledata.style.padding = "20px";
     titledata.textContent = myLibrary[myLibrary.length - 1].title;
     titledata.style.width = "25%";
-    titledata.style.wordBreak = "break-all";
+    // titledata.style.wordBreak = "break-all";
     // titledata.style.border = "1px solid black";
 
     let authordata = document.createElement('td');
@@ -178,7 +179,8 @@ function submitBook() {
         if(title.value !== '' && author.value !== '' && pages.value !== '') {
             addBookToLibrary();
             table.style.display = "block";
-            form.style.display = "none";
+            // modal.style.display = "none";
+            // form.style.display = "none";
             form.reset();
             // myLibrary.splice(myLibrary.length - 1, 1);
         }
@@ -205,22 +207,22 @@ function deleteBook(remove, row) {
 
 }
 
-function closeForm() {
-    cancel.addEventListener('click', function() {
-        form.style.display = "none";
-        form.reset();
-    })
-}
+// function closeForm() {
+//     cancel.addEventListener('click', function() {
+//         form.style.display = "none";
+//         form.reset();
+//     })
+// }
 
 
-function setIndex() {
-    let rows = document.querySelectorAll('tr');
-    let arr = Array.from(rows);
-    for(let i = 0; i < arr.length; i++){
-        arr[i].dataset.id = `${i}`
-    }
-    // console.log(arr);
-}
+// function setIndex() {
+//     let rows = document.querySelectorAll('tr');
+//     let arr = Array.from(rows);
+//     for(let i = 0; i < arr.length; i++){
+//         arr[i].dataset.id = `${i}`
+//     }
+//     // console.log(arr);
+// }
 
 // function deleteElement() {
 //     for(let i = 0; i < arr.length; i++) {
@@ -235,7 +237,7 @@ function setIndex() {
 addNewBooks();
 submitBook();
 setStatus();
-closeForm();
+// closeForm();
 // setIndex();
 // deleteElement();
 
