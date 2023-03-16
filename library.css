@@ -30,16 +30,10 @@ body {
 }
 .container #new {
     display: flex;
-    /* justify-content: center; */
     padding: 5px 10px;
-    /* border: 2px solid #e5e7eb; */
     border: none;
     background-color: #fff;
     cursor: pointer;
-}
-.container > div {
-    /* display: flex; */
-    
 }
 
 #text {
@@ -57,34 +51,9 @@ form {
 table {
     table-layout: fixed;
     width: 100%;
-    /* justify-self: center; */
     border-collapse: collapse;
     margin-top: 1.5em;
-    /* width: 75%; */
-    /* display: none; */
-}
-
-thead th:nth-child(1) {
-    /* width: max-content; */
-}
-
-thead th:nth-child(2) {
-    /* width: 20%; */
-    /* width: max-content; */
-}
-
-thead th:nth-child(3) {
-    /* width: 15%; */
-    /* width: max-content; */
-}
-
-thead th:nth-child(4) {
-    /* width: 20%; */
-    /* width: max-content; */
-}
-thead th:nth-child(5) {
-    /* width: 15%; */
-    /* width: max-content; */
+    
 }
 
 th {
@@ -103,13 +72,6 @@ td {
     border-left: #cbd5e1;
 }
 
-/* input {
-    width: 100%;
-} */
-
-input:focus:valid {
-    border-color: #0ea5e9;
-}
 
 header {
     background-color: #a5f3fc;

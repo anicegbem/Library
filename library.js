@@ -57,7 +57,6 @@ function addBookToLibrary() {
     // create the object instance
     setStatus();
     let book = new Book(title.value, author.value, pages.value, check.value);
-    // console.log(book);
     // add the object to the array
     myLibrary.push(book);
     // display the items(title, pages, read, author) on screen
@@ -72,20 +71,19 @@ function displayBooks() {
     titledata.style.padding = "20px";
     titledata.textContent = myLibrary[myLibrary.length - 1].title;
     titledata.style.width = "25%";
-    // titledata.style.wordBreak = "break-all";
-    // titledata.style.border = "1px solid black";
+    
 
     let authordata = document.createElement('td');
     authordata.style.padding = "20px";
     authordata.textContent = myLibrary[myLibrary.length - 1].author;
     authordata.style.width = "25%";
-    // authordata.style.border = "1px solid black"
+    
 
     let pagedata = document.createElement('td');
     pagedata.style.padding = "20px";
     pagedata.textContent = myLibrary[myLibrary.length - 1].pages;
     pagedata.style.width = "25%";
-    // pagedata.style.border = "1px solid black"
+    
 
     let row = document.createElement('tr');
     row.style.width = "min-content";
@@ -105,15 +103,6 @@ function displayBooks() {
         read.style.color = "white";
     }
 
-    // for(let i = 0; i < myLibrary.length; i++) {
-    //     row.dataset.id = `${i}`;
-    // }
-    
-    // setIndex();
-    // Indexes appear to be set only on button click
-
-
-    // row.dataset.id = `${}`
     row.append(titledata, authordata, pagedata);
     let remove = document.createElement('button');
     remove.style.width = "70px";
@@ -124,9 +113,8 @@ function displayBooks() {
     remove.textContent = "Delete";
 
     let rd = document.createElement('td');
-    // rd.style.padding = "20px";
+
     rd.style.width = "25%";
-    // rd.style.border = "1px solid black"
 
     let td = document.createElement('td');
     td.style.width = "25%";
@@ -139,31 +127,12 @@ function displayBooks() {
     tbody.append(row);
     table.append(tbody);
     
-    // for(let book of myLibrary) {
-    //     let titledata = document.createElement('td');
-    //     titledata.textContent = book.title;
-    //     let authordata = document.createElement('td');
-    //     authordata.textContent = book.author;
-    //     let pagedata = document.createElement('td');
-    //     pagedata.textContent = book.pages;
-    //     let row = document.createElement('tr');
-    //     row.append(titledata, authordata, pagedata);
-    //     let remove = document.createElement('button');
-    //     remove.textContent = "delete"
-    //     let td = document.createElement('td');
-    //     td.append(remove);
-    //     row.append(td);
-    //     tbody.append(row);
-    //     table.append(tbody);
-    
-    // }
 }
 
 function addNewBooks() {
     newbook.addEventListener('click', function() {
         form.style.display = "block";
-        // form.style.position = "absolute";
-        // form.style.top = "200px";
+        
 
     })
 }
@@ -179,10 +148,8 @@ function submitBook() {
         if(title.value !== '' && author.value !== '' && pages.value !== '') {
             addBookToLibrary();
             table.style.display = "block";
-            // modal.style.display = "none";
-            // form.style.display = "none";
             form.reset();
-            // myLibrary.splice(myLibrary.length - 1, 1);
+            
         }
         
     })
@@ -190,54 +157,20 @@ function submitBook() {
 
 function deleteBook(remove, row) {
     remove.addEventListener('click', function() {
-        // row.remove();
         
         // Code for removing elements from array can come in here
         let index = [...tbody.children].indexOf(row);
         myLibrary.splice(index, 1);
         row.remove();
-        // for(let obj in myLibrary) {
-        //     if(row.dataset.id === obj) {
-        //         row.style.display = "none";
-        //         myLibrary.splice(obj, 1);
-        //     }
-        // }
+        
 
     })
 
 }
-
-// function closeForm() {
-//     cancel.addEventListener('click', function() {
-//         form.style.display = "none";
-//         form.reset();
-//     })
-// }
-
-
-// function setIndex() {
-//     let rows = document.querySelectorAll('tr');
-//     let arr = Array.from(rows);
-//     for(let i = 0; i < arr.length; i++){
-//         arr[i].dataset.id = `${i}`
-//     }
-//     // console.log(arr);
-// }
-
-// function deleteElement() {
-//     for(let i = 0; i < arr.length; i++) {
-//         arr[i].dataset.id = `${i}`; 
-
-//     }
-// }
-
 
 
 
 addNewBooks();
 submitBook();
 setStatus();
-// closeForm();
-// setIndex();
-// deleteElement();
 
